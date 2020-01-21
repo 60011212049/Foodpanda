@@ -48,14 +48,13 @@ class ConnectDB {
         
     }
      public function insert($user,$pass,$fname,$lname,$stuatus,$email,$tel) {
-       $sql =  "INSERT INTO `user_food`(`iduser`, `pass`, `fname`, `lname`, `status`,  `email` , `tel`) 
-       VALUES (".$user.",".$pass.",".$fname.",".$lname.",".$stuatus.",".$email.",".$tel.")";
+       
 
        $sql =  "INSERT INTO `user_food`(`fname`, `lname`, `email`, `tel`, `iduser`, `pass`, `status`) 
-       VALUES (".$fname.",".$lname.",".$email.",".$tel.",".$user.",".$pass.",".$stuatus.")";
+       VALUES ('".$fname."','".$lname."','".$email."','".$tel."','".$user."','".$pass."','".$stuatus."')";
        
        if(mysqli_query($this->connect(), $sql)){
-           #header("Location:index.php");
+           header("Location:index.php");
            echo "Insert";
        }else echo "Cannot Insert";
         echo $sql;
