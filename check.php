@@ -12,11 +12,12 @@ $tel = $_POST['tel'];
 $email = $_POST['email'];
 #echo $submit;
 $con=new ConnectDB();
-if ($submit == 'Login'){
+if ($submit == 'เข้าสู่ระบบ'){
     $con->ckuser($user, $pass);
 }
 else if($submit == 'ยืนยันการสมัคร'){
     $stuatus = "user";
+    echo "ok";
     $con->insert($user,$pass,$fname, $lname, $stuatus ,$email ,$tel);
 }
 
