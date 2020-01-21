@@ -30,7 +30,7 @@ class ConnectDB {
             $_SESSION['pass']=$row['pass'];
 
             if($_SESSION['stuatus'] == 'user'){
-                #header("Location:admin.php");
+                header("Location:admin.php");
             }
             else if($_SESSION['stuatus'] == 'driver'){
                 header("Location:indexDriver.php");
@@ -38,7 +38,8 @@ class ConnectDB {
             else if($_SESSION['stuatus'] == 'admin'){
                 header("Location:Pageadmin.php");
             }
-                
+            else
+                header("Location:Login.php");
 
         }else{
 
