@@ -41,14 +41,14 @@
             <a href="" data-toggle="collapse" data-target="#li1" >จัดการผู้ใช้</a>
             <a href="" data-toggle="collapse" data-target="#li2">จัดการรายชื่อคนขับ</a>
             <a href="" data-toggle="collapse" data-target="#li3">จัดการรายชื่อร้านค้า</a>
-            <a> ชื่อ : <?php echo $_SESSION['fname'];?> </a>
+            <a class="active" > ชื่อ : <?php echo $_SESSION['fname'];?> </a>
         </div>
         <div style="margin-top:3%"></div>
     <div id="li1" class="collapse"  >
         <table style="margin-top: 5%;">
             <tr>
-                <th>เเก้ไง</th>
                 <th>ลบ</th>
+                <th>เเก้ไง</th>
                 <th>ชื่อ</th>
                 <th>นามสกุล</th>
                 <th>Email</th>
@@ -66,8 +66,8 @@
                 while($row = mysqli_fetch_array($result)){
                     
             ?><tr>
-            <td> <a href=check.php?ID=<?PHP echo $row["id"]; ?>><button type="button" class="btn btn-outline-info">Info</button></a></td>
-            <td> <a href=register.php?i=1&ID=<?PHP echo $row["id"]; ?>><button type="button" class="btn btn-outline-danger">Danger</button></a></td>
+            <td> <a href=check.php?ID=<?PHP echo $row["id"]; ?>><button type="button" class="btn btn-outline-danger">Danger</button></a></td>
+            <td> <a href=register.php?i=2&ID=<?PHP echo $row["id"]; ?>><button type="button" class="btn btn-outline-info">Info</button></a></td>
             <td><?php echo $row["fname"];?></td>
             <td><?php echo $row["lname"];?></td>
             <td><?php echo $row["email"];?></td>
@@ -104,8 +104,8 @@
                 while($row = mysqli_fetch_array($result)){
                     
             ?><tr>
-            <td> <a href=check.php?ID=<?PHP echo $row["id_driver"]; ?>><button type="button" class="btn btn-outline-info">Info</button></a></td>
-            <td> <a href=register.php?i=1&ID=<?PHP echo $row["id_driver"]; ?>><button type="button" class="btn btn-outline-danger">Danger</button></a></td>
+            <td> <a href=check.php?ID=<?PHP echo $row["id_driver"]; ?>><button type="button" class="btn btn-outline-danger">Danger</button></a></td>
+            <td> <a href=register.php?i=1&ID=<?PHP echo $row["id_driver"]; ?>><button type="button" class="btn btn-outline-info">Info</button></a></td>
             <td><?php echo $row["fname"];?></td>
             <td><?php echo $row["lname"];?></td>
             <td><?php echo $row["tel"];?></td>
@@ -138,8 +138,8 @@
                 while($row = mysqli_fetch_array($result)){
                     
             ?><tr>
-            <td> <a href=check.php?ID=<?PHP echo $row["id"]; ?>><button type="button" class="btn btn-outline-info">Info</button></a></td>
-            <td> <a href=register.php?i=1&ID=<?PHP echo $row["id"]; ?>><button type="button" class="btn btn-outline-danger">Danger</button></a></td>
+            <td> <a href=check.php?ID=<?PHP echo $row["id"]; ?>><button type="button" class="btn btn-outline-danger">Danger</button></a></td>
+            <td> <a href=register.php?i=1&ID=<?PHP echo $row["id"]; ?>><button type="button" class="btn btn-outline-info">Info</button></a></td>
             <td><?php echo $row["name"];?></td>
             <td><?php echo $row["tel"];?></td>
 

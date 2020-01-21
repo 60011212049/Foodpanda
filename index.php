@@ -11,7 +11,7 @@
             <p>foodpanda</p>
             <a href="index.php">หน้าหลัก</a>
             <a class="active" href="Login.php" >เข้าสู่ระบบ</a>
-            <a href="Register.php">สมัครสมาชิก</a>
+            <a href="Register.php?i=1">สมัครสมาชิก</a>
             <a href="Aboutus.php">เกี่ยวกับเรา</a>
         </div>
         <script>
