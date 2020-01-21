@@ -57,14 +57,12 @@
             while ($row = mysqli_fetch_array($result)) {
                 echo "<tr>";
                 echo "<div class=clearfix><form action=sentOrder.php?id=" . $row['id_order'] . " method=POST enctype=multipart/form-data>";
-                echo "<div class=clearfix>";
                 echo "<p class=tagP >ชื่อลูกค้า : " . $row['cus_name'] . "</p>";
                 echo "<p class=tagP >ชื่อร้านค้า : " . $row['shop'] . "</p>";
                 echo "<p class=tagP >รายละเอียด : " . $row['detail'] . "</p>";
                 echo "<p class=tagP >ที่อยู่ลูกค้า : " . $row['address'] . "</p>";
                 echo "<br><center><button class=button >รับออเดอร์</button></center>";
                 echo "</form></div>";
-                echo "</div>";
                 
                 echo "</tr>";
             }
