@@ -9,6 +9,21 @@
     <style>
         .clearfix {
             overflow: auto;
+            background-color: antiquewhite;
+            border: 5px solid #cc0066;
+            width: 50%;
+            padding: 3px;
+        }
+
+        .imgfix {
+            width: 50%;
+            float: right;
+        }
+
+        .tagP {
+            float: left;
+            font-size: 100%;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
         }
     </style>
 </head>
@@ -30,14 +45,21 @@
     </script>
     <center>
         <table>
-            <tr>
-                <div class="clearfix" style="border: 5px solid #cc0066;width: 50%;padding: 3px;">
-                    <img src="img/pro1.png" style="width:50%;float: right;">
-                    <!--<h3>Kito B.Duck BE4</h3>-->
-                    <!--<p class="price">388.- baht</p>-->
-                    <p><button>ดูรายละเอียดเพิ่มเติม</button></p>
-                </div>
-            </tr>
+            <?php
+            $x = 0;
+            while ($x < 5) {
+                echo "<tr>";
+                echo "<div class=clearfix>";
+                echo "<img class=imgfix src=img/pro1.png>";
+                echo "<p class=tagP >ชื่อลูกค้า : ต้า</p><br>";
+                echo "<p>รายการที่สั่ง : ตำไทย</p><br>";
+                echo "</div>";
+                echo "</tr>";
+                $x = $x+1;
+                echo $x;
+            }
+
+            ?>
         </table>
 
 
