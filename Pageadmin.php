@@ -8,7 +8,7 @@
     <body style="background-image: url('img/background1.jpg'); ">
         <div class="topnav" id="myTopnav">
             <p>foodpanda</p>
-            <a href="">ออกจากระบบ</a>
+            <a href="index.php">ออกจากระบบ</a>
             <a href="">จัดการผู้ใช้</a>
             <a href="">จัดการรายชื่อคนขับ</a>
             <a href="">จัดการรายชื่อร้านค้า</a>
