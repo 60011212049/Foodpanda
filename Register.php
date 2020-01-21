@@ -32,7 +32,7 @@
             <img src="img/logo1.png" style="width:408px; margin-top:70px;">
         </center>
         <div class="setformRegister" style="margin-left:auto; margin-right:auto;">
-            <form name="form" method="POST" enctype="multipart/form-data">
+            <form name="form" method="POST" enctype="multipart/form-data" action="check.php">
                 <label style="font-weight: 1000; color: white;" for="fname">ชื่อ :</label><br>
                 <div style="margin-top: 5px;">
                 <input class="setinputRegister" type="text" id="fname" name="fname" maxlength="20" required><br><br>

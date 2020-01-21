@@ -32,7 +32,7 @@
             <img src="img/logo1.png" style="width:408px; margin-top:100px;">
         </center>
         <div class="setformLogin" style="margin-left:auto; margin-right:auto;">
-            <form name="formLogin" method="POST" enctype="multipart/form-data">       
+            <form name="formLogin" method="POST" enctype="multipart/form-data" action="check.php">       
                 <label style="font-weight: 1000; color: white;" for="user">ชื่อผู้ใช้งาน :</label><br>
                 <div style="margin-top: 5px;">
                 <input class="setinputLogin" type="text" id="user" name="user" minlength="4" maxlength="30" required><br><br>
@@ -42,7 +42,7 @@
                 <input class="setinputLogin" type="password" id="pass" name="pass" minlength="4" maxlength="30" required><br><br>
 
                 <center>
-                    <input class="btLogin" type="submit" name="submit" value="เข้าสู่ระบบ">
+                    <input class="btLogin" type="submit" name="submit" value="Login">
                 </center>
             </form>
         </div>
