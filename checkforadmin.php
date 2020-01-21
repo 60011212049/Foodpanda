@@ -20,11 +20,6 @@ else if($submit == 'ยืนยันการสมัคร'){
     echo "ok";
     $con->insert($user,$pass,$fname, $lname, $stuatus ,$email ,$tel);
 }
-else if($submit == 'ยืนยันการเเก้ไข'){
-    $stuatus = "user";
-    echo "ok";
-    $con->insertuser($user,$pass,$fname, $lname, $stuatus ,$email ,$tel);
-}
 
 
 

@@ -21,10 +21,7 @@ class ConnectDB {
             $_SESSION['id']=$row['id'];
             $_SESSION['fname']=$row['fname'];
             $_SESSION['lname']=$row['lname'];
-            $_SESSION['sex']=$row['sex'];
-            $_SESSION['age']=$row['age'];
             $_SESSION['email']=$row['email'];
-            $_SESSION['Img']=$row['img'];
             $_SESSION['stuatus']=$row['status'];
             $_SESSION['user']=$row['user'];
             $_SESSION['pass']=$row['pass'];
@@ -50,7 +47,6 @@ class ConnectDB {
     }
      public function insert($user,$pass,$fname,$lname,$stuatus,$email,$tel) {
        
-
        $sql =  "INSERT INTO `user_food`(`fname`, `lname`, `email`, `tel`, `iduser`, `pass`, `status`) 
        VALUES ('".$fname."','".$lname."','".$email."','".$tel."','".$user."','".$pass."','".$stuatus."')";
        
@@ -60,6 +56,34 @@ class ConnectDB {
        }else echo "Cannot Insert";
         echo $sql;
     }
+
+    public function updateuser($id,$user,$pass,$fname,$lname,$status,$email,$tel){
+        session_start();
+        $sql = "UPDATE `user_food` SET 
+        `fname`='".$fname."',`lname`='".$lname."',`email`='".$email."',`tel`='".$tel."',`iduser`='".$user."',`pass`='".$pass."',`status`='".$status."' 
+        WHERE id=".$id ;
+        echo $sql;
+        if(mysqli_query($this->connect(), $sql)){
+            echo 'update';
+           if($_SESSION['stuatus'] == "admin"){
+                header("Location:Pageadmin.php");
+           }
+           else if($_SESSION['stuatus'] == "user"){
+                header("Location:member.php");
+           }
+           else if($_SESSION['stuatus'] == 'driver'){
+                header("Location:indexDriver.php");
+           }
+        
+       }else  header("Location:Pageadmin.php");
+    }
+
+
+
+
+
+
+
     public function update($fname, $lname, $sex, $stuatus, $user, $pass){
         session_start();
         $sql = "UPDATE `db_user` SET `user`=[value-2],`pass`=[value-3],`fname`=[value-4],`lname`=[value-5],`sex`=[value-6],
