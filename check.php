@@ -23,7 +23,9 @@ else if($submit == 'ยืนยันการสมัคร'){
 else if($submit == 'ยืนยันการเเก้ไข'){
     $stuatus = "user";
     echo "ok";
-    $con->insertuser($user,$pass,$fname, $lname, $stuatus ,$email ,$tel);
+    $id=$_REQUEST['id'];
+    echo $id;
+    $con->updateuser($id,$user,$pass,$fname,$lname,$status,$email,$tel);
 }
 
 

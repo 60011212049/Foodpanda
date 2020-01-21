@@ -88,13 +88,11 @@
             $row = mysqli_fetch_array($result);
         ?>
             <div class="topnav" id="myTopnav">
-            <p>foodpanda</p>
-            <a href="index.php">หน้าหลัก</a>
-            <a href="Login.php">เข้าสู่ระบบ</a>
-            <a class="active">สมัครสมาชิก</a>
-            <a href="#Promotion">โปรโมชั่น</a>
-            <a href="Aboutus.php">เกี่ยวกับเรา</a>
-        </div>
+                <p>foodpanda</p>
+                <a href="index.php">ออกจากระบบ</a>
+                <a href="Pageadmin.php"  >กลับ</a>
+                
+            </div>
 
         <div style="margin-top:3%"></div>
 
@@ -114,7 +112,7 @@
         </center>
 
             <div class="setformRegister" style="margin-left:auto; margin-right:auto;">
-            <form name="form" method="POST" enctype="multipart/form-data" action="check.php?id=<? echo $id   ?>">
+            <form name="form" method="POST" enctype="multipart/form-data" action="check.php?id=<?php echo $id?>">
                 <label style="font-weight: 1000; color: white;" for="fname">ชื่อ :</label><br>
                 <div style="margin-top: 5px;">
                 <input class="setinputRegister" type="text" id="fname" name="fname" maxlength="20" value=<?php echo $row['fname'];?> required><br><br>
@@ -138,6 +136,9 @@
                 <label style="font-weight: 1000; color: white;" for="pass">รหัสผ่าน :</label><br>
                 <div style="margin-top: 5px;">
                 <input class="setinputRegister" type="password" id="pass" name="pass" minlength="4" maxlength="30" value=<?php echo $row['pass'];?> required><br><br>
+
+              
+                
 
                 <center>
                     <input class="btRegister" type="submit" name="submit" value=ยืนยันการเเก้ไข>

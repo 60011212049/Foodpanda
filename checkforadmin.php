@@ -18,7 +18,7 @@ if ($submit == 'เข้าสู่ระบบ'){
 else if($submit == 'ยืนยันการสมัคร'){
     $stuatus = "user";
     echo "ok";
-    $con->insert($user,$pass,$fname, $lname, $stuatus ,$email ,$tel);
+    $con->insertuser()
 }
 
 
