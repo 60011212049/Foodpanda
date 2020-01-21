@@ -46,19 +46,25 @@
     <center>
         <table>
             <?php
+            error_reporting(E_ALL ^ E_NOTICE);
+            require_once './ActionDB.php';
+            $connect = new connectDB();
+            if ($connect->connect()) {
+                $sql = "select * from food_order";
+                $result = mysqli_query($connect->connect(), $sql);
+            } else echo "Cannot connect!!!";
             $x = 0;
-            while ($x < 5) {
+            while ($row = mysqli_fetch_array($result)) {
                 echo "<tr>";
                 echo "<div class=clearfix>";
                 echo "<img class=imgfix src=img/pro1.png>";
-                echo "<p class=tagP >ชื่อลูกค้า : ต้า</p><br>";
-                echo "<p>รายการที่สั่ง : ตำไทย</p><br>";
+                echo "<p class=tagP >ชื่อลูกค้า : " . $row['cus_name'] . "</p><br>";
+                echo "<p class=tagP >ชื่อร้านค้า : " . $row['shop'] . "</p><br>";
+                echo "<p class=tagP >รายละเอียด : " . $row['detail'] . "</p><br>";
+                echo "<p class=tagP >ที่อยู่ลูกค้า : " . $row['address'] . "</p><br>";
                 echo "</div>";
                 echo "</tr>";
-                $x = $x+1;
-                echo $x;
             }
-
             ?>
         </table>
 
