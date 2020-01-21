@@ -33,7 +33,7 @@ class ConnectDB {
                 header("Location:admin.php");
             }
             else if($_SESSION['stuatus'] == 'driver'){
-                header("Location:indexDriver.php");
+                header("Location:indexDriver.php?state=logout");
             }
             else if($_SESSION['stuatus'] == 'admin'){
                 header("Location:Pageadmin.php");
