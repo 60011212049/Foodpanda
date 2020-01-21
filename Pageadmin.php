@@ -5,7 +5,6 @@
         <link rel="stylesheet" type="text/css" href="CssBG.css" >
         <title>admin</title>
 
-</style>
     <body>
          <table id="customers" style="margin-top: 10px">
         <button   >จัดการรายชื่อร้านค้า</button>
@@ -13,10 +12,6 @@
         <button   >จัดการผู้ใช้</button>
         <button   >ออกจากระบบ</button>
         
-       
-           
-           
-           
             
         </table>
     </body>
