@@ -8,15 +8,12 @@
     <body>
         <div class="topnav" id="myTopnav">
             <p>foodpanda</p>
-            <a class="active">หน้าหลัก</a>
-            <a href="Login.php">เข้าสู่ระบบ</a>
+            <a href="index.php">หน้าหลัก</a>
+            <a class="active">เข้าสู่ระบบ</a>
             <a href="Register.php">สมัครสมาชิก</a>
             <a href="#Promotion">โปรโมชั่น</a>
             <a href="Aboutus.php">เกี่ยวกับเรา</a>
         </div>
-
-        <div style="margin-top:50px"></div>
-
         <script>
             function myFunction() {
                 var x = document.getElementById("myTopnav");
@@ -28,9 +25,6 @@
                 }
             }
         </script>
-        <?php
-        
-        ?>
         <div class="bg-img">
             <form class="example" action="#" style="margin:auto;max-width:300px">
                 <img src="img/logo1.png" style="width:100%; margin-top:30%;">
