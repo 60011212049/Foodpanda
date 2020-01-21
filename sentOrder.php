@@ -48,21 +48,22 @@
             <?php
             error_reporting(E_ALL ^ E_NOTICE);
             require_once './ActionDB.php';
+            $id = $_REQUEST["id"];
             $connect = new connectDB();
             if ($connect->connect()) {
-                $sql = "select * from food_order";
+                $sql = "select * from food_order where id_order = ".$id."";
                 $result = mysqli_query($connect->connect(), $sql);
             } else echo "Cannot connect!!!";
             $x = 0;
             while ($row = mysqli_fetch_array($result)) {
                 echo "<tr>";
-                echo "<div class=clearfix><form action=sentOrder.php?id=" . $row['id_order'] . " method=POST enctype=multipart/form-data>";
+                echo "<div class=clearfix>";
                 echo "<p class=tagP >ชื่อลูกค้า : " . $row['cus_name'] . "</p>";
                 echo "<p class=tagP >ชื่อร้านค้า : " . $row['shop'] . "</p>";
                 echo "<p class=tagP >รายละเอียด : " . $row['detail'] . "</p>";
                 echo "<p class=tagP >ที่อยู่ลูกค้า : " . $row['address'] . "</p>";
-                echo "<br><center><button class=button >รับออเดอร์</button></center>";
-                echo "</form></div>";
+                echo "<br><center><button class=button onclick=myFunction() >ส่งของเรียบร้อย</button></center>";
+                echo "</div>";
                 
                 echo "</tr>";
             }
@@ -74,7 +75,7 @@
     </center>
     <script language="javascript" type="text/javascript">
         function myFunction() {
-            window.location.href = "index.php?";
+            window.location.href = "workpage.php";
         }
     </script>
 
