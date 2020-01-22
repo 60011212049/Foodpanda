@@ -40,7 +40,7 @@
     ?>
     <div class="topnav" id="myTopnav">
         <p>foodpanda</p>
-        <a href="index.php">ออกจากระบบ</a>
+        <a href="logout.php">ออกจากระบบ</a>
         <a href="" data-toggle="collapse" data-target="#li1">จัดการผู้ใช้</a>
         <a href="" data-toggle="collapse" data-target="#li2">จัดการรายชื่อคนขับ</a>
         <a href="" data-toggle="collapse" data-target="#li3">จัดการรายชื่อร้านค้า</a>
@@ -68,22 +68,8 @@
 
             while ($row = mysqli_fetch_array($result)) {
 
+            
             ?>
-                <tr>
-                    <td> <a href=check.php?ID=<?PHP echo $row["id"]; ?>><button type="button" class="btn btn-outline-danger">ลบ</button></a></td>
-                    <td> <a href=register.php?i=2&ID=<?PHP echo $row["id"]; ?>><button type="button" class="btn btn-outline-info">เเก้ไข</button></a></td>
-                    <td><?php echo $row["fname"]; ?></td>
-                    <td><?php echo $row["lname"]; ?></td>
-                    <td><?php echo $row["email"]; ?></td>
-                    <td><?php echo $row["tel"]; ?></td>
-                    <td><?php echo $row["iduser"]; ?></td>
-                    <td><?php echo $row["pass"]; ?></td>
-                    <td><?php echo $row["status"]; ?></td>
-                </tr>
-            <?php
-            }
-            ?>
-<<<<<<< HEAD
             <tr>
                 <td> <a href=check.php?d=1&ID=<?PHP echo $row["id"]; ?>><button type="button" class="btn btn-outline-danger">ลบ</button></a></td>
                 <td> <a href=register.php?i=2&ID=<?PHP echo $row["id"]; ?>><button type="button" class="btn btn-outline-info">เเก้ไข</button></a></td>
@@ -100,10 +86,6 @@
               }
           ?>
             
-=======
-
-
->>>>>>> 91c46ab9834a60ffa066f69dbed2e9ced959e476
         </table>
         <a href=register.php?i=4><button type="button" class="btn btn-success">เพิ่มรายชื่อผู้ดูเเล</button></a> 
         
@@ -165,7 +147,6 @@
             while ($row = mysqli_fetch_array($result)) {
 
             ?><tr>
-<<<<<<< HEAD
             <td> <a href=check.php?d=2&ID=<?PHP echo $row["id"]; ?>><button type="button" class="btn btn-outline-danger">ลบ</button></a></td>
             <td> <a href=register.php?i=5&ID=<?PHP echo $row["id"]; ?>><button type="button" class="btn btn-outline-info">เเก้ไข</button></a></td>
             <td><?php echo $row["name"];?></td>
@@ -178,19 +159,6 @@
           ?>
             
             
-=======
-                    <td> <a href=check.php?ID=<?PHP echo $row["id"]; ?>><button type="button" class="btn btn-outline-danger">ลบ</button></a></td>
-                    <td> <a href=register.php?i=1&ID=<?PHP echo $row["id"]; ?>><button type="button" class="btn btn-outline-info">เเก้ไข</button></a></td>
-                    <td><?php echo $row["name"]; ?></td>
-                    <td><?php echo $row["tel"]; ?></td>
-
-                </tr>
-            <?php
-            }
-            ?>
-
-
->>>>>>> 91c46ab9834a60ffa066f69dbed2e9ced959e476
         </table>
         <a href=register.php?i=4><button type="button" class="btn btn-success">เพิ่มรายร้านค้า</button></a> 
     </div>
