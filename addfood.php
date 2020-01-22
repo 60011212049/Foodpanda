@@ -8,12 +8,9 @@
     
     <body style="background-image: url('img/background1.jpg'); ">
     <?php
-        $i=$_REQUEST['i'];    
-        if($i==2 || $i == 5){
-            
-            $id=$_REQUEST['ID'];
-            
-        }
+        $i=$_REQUEST['i'];
+        $id=$_REQUEST['ID'];    
+        
     ?>
         
         <?php if ($i == 1) { ?>
@@ -40,15 +37,15 @@
         </center>
 
         <div class="setformRegister" style="margin-left:auto; margin-right:auto;">
-            <form name="form" method="POST" enctype="multipart/form-data" action="check.php">
-
+            <form name="form" method="POST" enctype="multipart/form-data" action="check.php?id=<?php echo $id?>">
+                <?php echo $id?>
                 <label style="font-weight: 1000; color: white;" for="fname">ชื่อ อาหาร:</label><br>
                 <div style="margin-top: 5px;">
                 <input class="setinputRegister" type="text" id="fname" name="fname" maxlength="20" required><br><br>
 
                 <label style="font-weight: 1000; color: white;" for="lname">ราคา :</label><br>
                 <div style="margin-top: 5px;">
-                <input class="setinputRegister" type="text" id="lname" name="lname" maxlength="20" required><br><br>
+                <input class="setinputRegister" type="text" id="lname" name="price" maxlength="20" required><br><br>
     
 
                 <center>
@@ -62,7 +59,7 @@
 
             require_once './ActionDB.php';
             $con = new ConnectDB();
-            $sql = "select * from food where id_store=".$id;
+            $sql = "select * from food where id=".$id;
             $result = mysqli_query($con->connect(), $sql);
             $row = mysqli_fetch_array($result);
         ?>

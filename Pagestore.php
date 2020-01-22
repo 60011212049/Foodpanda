@@ -68,7 +68,7 @@
             <?php
             require_once './ActionDB.php';
             $con = new ConnectDB();
-            $sql = "select * from food where id_store=".$_SESSION["id"];;
+            $sql = "select * from food where id_store=".$_SESSION["id"];
            
             $result = mysqli_query($con->connect(), $sql);
 
