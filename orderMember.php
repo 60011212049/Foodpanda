@@ -51,12 +51,12 @@
             $x = 0;
             while ($row = mysqli_fetch_array($result)) {
                 echo "<tr>";
-                echo "<div class=clearfix><form action=check.php?id=" . $row['id'] . " method=POST enctype=multipart/form-data>";
+                echo "<div class=clearfix><form action=check.php?shop=" . $row['id'] . "&order=sent method=POST enctype=multipart/form-data>";
                 echo "<p class=tagP >ชื่อร้านค้า : " . $row['name'] . "</p>";
                 echo "<p class=tagP >ติดต่อ : " . $row['tel'] . "</p>";
                 echo "<p class=tagP >ที่อยู่ร้านค้า : " . $row['loc'] . "</p>";
-                echo "<textarea>Some text...</textarea>";
-                echo "<br><center><button class=button >สั่งอาหาร</button></center>";
+                echo "<textarea id=text >Some text...</textarea>";
+                echo "<br><center><button class=button type=submit >สั่งอาหาร</button></center>";
                 echo "</form></div>";
 
                 echo "</tr>";
