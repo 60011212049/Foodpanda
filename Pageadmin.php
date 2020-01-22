@@ -37,6 +37,9 @@
 <body style="background-image: url('img/background1.jpg'); ">
     <?php
     session_start();
+    if($_SESSION['fname'] == ''){
+        header("Location:Login.php");
+    } 
     ?>
     <div class="topnav" id="myTopnav">
         <p>foodpanda</p>

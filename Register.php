@@ -85,10 +85,7 @@
             $row = mysqli_fetch_array($result);
         ?>
             <div class="topnav" id="myTopnav">
-                <p>foodpanda</p>
-                <a href="index.php">ออกจากระบบ</a>
-                <a href="Pageadmin.php"  >กลับ</a>
-                
+                <p>foodpanda</p>                
             </div>
 
         <div style="margin-top:3%"></div>
@@ -151,8 +148,7 @@
         ?>
             <div class="topnav" id="myTopnav">
                 <p>foodpanda</p>
-                <a href="index.php">ออกจากระบบ</a>
-                <a href="Pageadmin.php"  >กลับ</a>
+                
                 
             </div>
 
@@ -214,8 +210,7 @@
          ?>
              <div class="topnav" id="myTopnav">
                  <p>foodpanda</p>
-                 <a href="index.php">ออกจากระบบ</a>
-                 <a href="Pageadmin.php"  >กลับ</a>
+                 
                  
              </div>
  
@@ -278,8 +273,7 @@
          ?>
              <div class="topnav" id="myTopnav">
                  <p>foodpanda</p>
-                 <a href="index.php">ออกจากระบบ</a>
-                 <a href="Pageadmin.php"  >กลับ</a>
+                 
                  
              </div>
  
