@@ -55,7 +55,7 @@
                 echo "<p class=tagP >ชื่อร้านค้า : " . $row['name'] . "</p>";
                 echo "<p class=tagP >ติดต่อ : " . $row['tel'] . "</p>";
                 echo "<p class=tagP >ที่อยู่ร้านค้า : " . $row['loc'] . "</p>";
-                echo "<textarea id=text >Some text...</textarea>";
+                echo "<textarea id=text name=text >Some text...</textarea>";
                 echo "<br><center><button class=button type=submit >สั่งอาหาร</button></center>";
                 echo "</form></div>";
 
