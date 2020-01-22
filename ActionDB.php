@@ -39,7 +39,7 @@ class ConnectDB {
                 header("Location:Login.php");
 
         }else{
-
+            header("Location:Login.php");
             echo "Cannot Login";
 
         }

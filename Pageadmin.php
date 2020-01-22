@@ -60,22 +60,23 @@
             <?php
                 require_once './ActionDB.php';
                 $con = new ConnectDB();
-                $sql = "select * from user_food ";
+                $sql = "select * from user_food where status!='driver'";
                 $result = mysqli_query($con->connect(), $sql);
                 
                 while($row = mysqli_fetch_array($result)){
                     
-            ?><tr>
-            <td> <a href=check.php?ID=<?PHP echo $row["id"]; ?>><button type="button" class="btn btn-outline-danger">Danger</button></a></td>
-            <td> <a href=register.php?i=2&ID=<?PHP echo $row["id"]; ?>><button type="button" class="btn btn-outline-info">Info</button></a></td>
-            <td><?php echo $row["fname"];?></td>
-            <td><?php echo $row["lname"];?></td>
-            <td><?php echo $row["email"];?></td>
-            <td><?php echo $row["tel"];?></td>
-            <td><?php echo $row["iduser"];?></td>
-            <td><?php echo $row["pass"];?></td>
-            <td><?php echo $row["status"];?></td>
-          </tr>
+            ?>
+            <tr>
+                <td> <a href=check.php?ID=<?PHP echo $row["id"]; ?>><button type="button" class="btn btn-outline-danger">ลบ</button></a></td>
+                <td> <a href=register.php?i=2&ID=<?PHP echo $row["id"]; ?>><button type="button" class="btn btn-outline-info">เเก้ไข</button></a></td>
+                <td><?php echo $row["fname"];?></td>
+                <td><?php echo $row["lname"];?></td>
+                <td><?php echo $row["email"];?></td>
+                <td><?php echo $row["tel"];?></td>
+                <td><?php echo $row["iduser"];?></td>
+                <td><?php echo $row["pass"];?></td>
+                <td><?php echo $row["status"];?></td>
+            </tr>
           <?php
               }
           ?>
@@ -84,32 +85,33 @@
         </table>
     </div>
     <div id="li2" class="collapse"  >
-        <table style="margin-top: 5%;">
+    <table style="margin-top: 5%;">
             <tr>
-                <th>เเก้ไง</th>
                 <th>ลบ</th>
+                <th>เเก้ไง</th>
                 <th>ชื่อ</th>
                 <th>นามสกุล</th>
+                <th>Email</th>
                 <th>เบอร์โทร</th>
                 <th>id</th>
                 <th>password</th>
                 <th>status</th>
             </tr>
             <?php
-                require_once './ActionDB.php';
-                $con = new ConnectDB();
-                $sql = "select * from driver ";
+                
+                $sql = "select * from user_food where status='driver'";
                 $result = mysqli_query($con->connect(), $sql);
                 
                 while($row = mysqli_fetch_array($result)){
                     
             ?><tr>
-            <td> <a href=check.php?ID=<?PHP echo $row["id_driver"]; ?>><button type="button" class="btn btn-outline-danger">Danger</button></a></td>
-            <td> <a href=register.php?i=1&ID=<?PHP echo $row["id_driver"]; ?>><button type="button" class="btn btn-outline-info">Info</button></a></td>
+            <td> <a href=check.php?ID=<?PHP echo $row["id"]; ?>><button type="button" class="btn btn-outline-danger">ลบ</button></a></td>
+            <td> <a href=register.php?i=2&ID=<?PHP echo $row["id"]; ?>><button type="button" class="btn btn-outline-info">เเก้ไข</button></a></td>
             <td><?php echo $row["fname"];?></td>
             <td><?php echo $row["lname"];?></td>
+            <td><?php echo $row["email"];?></td>
             <td><?php echo $row["tel"];?></td>
-            <td><?php echo $row["user"];?></td>
+            <td><?php echo $row["iduser"];?></td>
             <td><?php echo $row["pass"];?></td>
             <td><?php echo $row["status"];?></td>
           </tr>
@@ -130,16 +132,15 @@
                 <th>เบอร์โทร</th>
             </tr>
             <?php
-                require_once './ActionDB.php';
-                $con = new ConnectDB();
+                
                 $sql = "select * from store ";
                 $result = mysqli_query($con->connect(), $sql);
                 
                 while($row = mysqli_fetch_array($result)){
                     
             ?><tr>
-            <td> <a href=check.php?ID=<?PHP echo $row["id"]; ?>><button type="button" class="btn btn-outline-danger">Danger</button></a></td>
-            <td> <a href=register.php?i=1&ID=<?PHP echo $row["id"]; ?>><button type="button" class="btn btn-outline-info">Info</button></a></td>
+            <td> <a href=check.php?ID=<?PHP echo $row["id"]; ?>><button type="button" class="btn btn-outline-danger">ลบ</button></a></td>
+            <td> <a href=register.php?i=1&ID=<?PHP echo $row["id"]; ?>><button type="button" class="btn btn-outline-info">เเก้ไข</button></a></td>
             <td><?php echo $row["name"];?></td>
             <td><?php echo $row["tel"];?></td>
 
