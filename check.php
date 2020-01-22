@@ -2,6 +2,10 @@
 require_once 'ActionDB.php';
 error_reporting(E_ALL^E_NOTICE);
 
+$order = $_REQUEST['order'];
+$shop = $_REQUEST['shop'];
+$text = $_POST['text'];
+
 $user = $_POST['user'];
 $pass = $_POST['pass'];
 $submit = $_POST['submit'];
@@ -51,6 +55,9 @@ else if($submit == 'ยืนยันการเพื่มร้านค้
     $loc = $_POST['loc'];
     echo "ok";
     $con->insertstore($user,$pass,$fname, $loc ,$tel);
+}
+else if($order == 'sent'){
+    $con->insertOrder($order,$shop,$text);
 }
 else{
     $d = $_REQUEST['d'];
