@@ -67,7 +67,7 @@
                     
             ?>
             <tr>
-                <td> <a href=check.php?ID=<?PHP echo $row["id"]; ?>><button type="button" class="btn btn-outline-danger">ลบ</button></a></td>
+                <td> <a href=check.php?d=1&ID=<?PHP echo $row["id"]; ?>><button type="button" class="btn btn-outline-danger">ลบ</button></a></td>
                 <td> <a href=register.php?i=2&ID=<?PHP echo $row["id"]; ?>><button type="button" class="btn btn-outline-info">เเก้ไข</button></a></td>
                 <td><?php echo $row["fname"];?></td>
                 <td><?php echo $row["lname"];?></td>
@@ -77,12 +77,14 @@
                 <td><?php echo $row["pass"];?></td>
                 <td><?php echo $row["status"];?></td>
             </tr>
+           
           <?php
               }
           ?>
             
-            
         </table>
+        <a href=register.php?i=4><button type="button" class="btn btn-success">เพิ่มรายชื่อผู้ดูเเล</button></a> 
+        
     </div>
     <div id="li2" class="collapse"  >
     <table style="margin-top: 5%;">
@@ -105,7 +107,7 @@
                 while($row = mysqli_fetch_array($result)){
                     
             ?><tr>
-            <td> <a href=check.php?ID=<?PHP echo $row["id"]; ?>><button type="button" class="btn btn-outline-danger">ลบ</button></a></td>
+            <td> <a href=check.php?d=1&ID=<?PHP echo $row["id"]; ?>><button type="button" class="btn btn-outline-danger">ลบ</button></a></td>
             <td> <a href=register.php?i=2&ID=<?PHP echo $row["id"]; ?>><button type="button" class="btn btn-outline-info">เเก้ไข</button></a></td>
             <td><?php echo $row["fname"];?></td>
             <td><?php echo $row["lname"];?></td>
@@ -121,7 +123,7 @@
             
             
         </table>
-
+        <a href=register.php?i=3><button type="button" class="btn btn-success">เพิ่มรายชื่อคนขับ</button></a>      
     </div>
     <div id="li3" class="collapse"  >
         <table style="margin-top: 5%;">
@@ -130,6 +132,8 @@
                 <th>ลบ</th>
                 <th>ชื่อร้าน</th>
                 <th>เบอร์โทร</th>
+                <th>id</th>
+                <th>password</th>
             </tr>
             <?php
                 
@@ -139,11 +143,12 @@
                 while($row = mysqli_fetch_array($result)){
                     
             ?><tr>
-            <td> <a href=check.php?ID=<?PHP echo $row["id"]; ?>><button type="button" class="btn btn-outline-danger">ลบ</button></a></td>
-            <td> <a href=register.php?i=1&ID=<?PHP echo $row["id"]; ?>><button type="button" class="btn btn-outline-info">เเก้ไข</button></a></td>
+            <td> <a href=check.php?d=2&ID=<?PHP echo $row["id"]; ?>><button type="button" class="btn btn-outline-danger">ลบ</button></a></td>
+            <td> <a href=register.php?i=5&ID=<?PHP echo $row["id"]; ?>><button type="button" class="btn btn-outline-info">เเก้ไข</button></a></td>
             <td><?php echo $row["name"];?></td>
             <td><?php echo $row["tel"];?></td>
-
+            <td><?php echo $row["idstore"];?></td>
+            <td><?php echo $row["pass"];?></td>       
           </tr>
           <?php
               }
@@ -151,6 +156,7 @@
             
             
         </table>
+        <a href=register.php?i=4><button type="button" class="btn btn-success">เพิ่มรายร้านค้า</button></a> 
     </div>
         
 

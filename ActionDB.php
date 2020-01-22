@@ -56,9 +56,20 @@ class ConnectDB {
        }else echo "Cannot Insert";
         echo $sql;
     }
+    public function insertstore($user,$pass,$fname,$loc,$tel) {
+       
+        $sql =  "INSERT INTO `store`( `name`, `tel`, `loc`, `idstore`, `pass`) 
+        VALUES ('".$fname."','".$tel."','".$loc."','".$user."','".$pass."')";
+        
+        if(mysqli_query($this->connect(), $sql)){
+            header("Location:Pageadmin.php");
+            echo "Insert";
+        }else header("Location:Pageadmin.php");;
+         echo $sql;
+     }
 
     public function updateuser($id,$user,$pass,$fname,$lname,$status,$email,$tel){
-        session_start();
+        
         $sql = "UPDATE `user_food` SET 
         `fname`='".$fname."',`lname`='".$lname."',`email`='".$email."',`tel`='".$tel."',`iduser`='".$user."',`pass`='".$pass."',`status`='".$status."' 
         WHERE id=".$id ;
@@ -76,6 +87,21 @@ class ConnectDB {
            }
         
        }else  header("Location:Pageadmin.php");
+    }
+
+    public function updatestore($id,$user,$pass,$fname,$loc,$tel){
+        
+        $sql = "UPDATE `store` SET 
+        `name`='".$fname."',`tel`='".$tel."',`loc`='".$loc."',`idstore`='".$user."',`pass`='".$pass."' 
+        WHERE id=".$id ;
+        
+        if(mysqli_query($this->connect(), $sql)){
+            echo 'update';
+           
+            header("Location:Pageadmin.php");
+           
+       }else  header("Location:Pageadmin.php");
+       
     }
 
 

@@ -10,6 +10,7 @@
         <div class="topnav" id="myTopnav">
             <p>foodpanda</p>
             <a href="index.php">หน้าหลัก</a>
+            <a href="Login2.php" >เข้าสู่ระบบเจ้าของร้าน</a>
             <a class="active" href="Login.php" >เข้าสู่ระบบ</a>
             <a href="Register.php?i=1">สมัครสมาชิก</a>
             <a href="Aboutus.php">เกี่ยวกับเรา</a>

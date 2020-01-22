@@ -21,13 +21,56 @@ else if($submit == 'ยืนยันการสมัคร'){
     $con->insert($user,$pass,$fname, $lname, $stuatus ,$email ,$tel);
 }
 else if($submit == 'ยืนยันการเเก้ไข'){
-    $stuatus = "user";
-    echo "ok";
+    
     $id=$_REQUEST['id'];
-    echo $id;
+    $sql = "select * from user_food where id=".$id;
+    $result= mysqli_query($con->connect(), $sql);
+        
+    if(mysqli_num_rows($result) == 1){
+        $row=mysqli_fetch_array($result);
+        $status = $row['status'];
+        echo $status;
+    }
+    else echo "not";
     $con->updateuser($id,$user,$pass,$fname,$lname,$status,$email,$tel);
 }
-
+else if($submit == 'ยืนยันการเเก้ไขร้านค้า'){
+    $id=$_REQUEST['id'];
+    
+    $con->updatestore($id,$user,$pass,$fname,$loc,$tel);
+}
+else if($submit == 'ยืนยันการเพื่มรายชื่อคนขับ'){
+    $stuatus = "driver";
+    echo "ok";
+    $con->insert($user,$pass,$fname, $lname, $stuatus ,$email ,$tel);
+}
+else if($submit == 'ยืนยันการเพื่มร้านค้า'){
+    $loc = $_POST['loc'];
+    echo "ok";
+    $con->insertstore($user,$pass,$fname, $loc ,$tel);
+}
+else{
+    $d = $_REQUEST['d'];
+    echo $d;
+    if($d == 1){
+        $id=$_REQUEST['ID'];
+        $sql = "DELETE FROM `user_food` WHERE id=".$id;
+        if(mysqli_query($con->connect(), $sql)){
+            header("Location:Pageadmin.php");
+        }else echo "Cannot ";
+        echo $sql;
+    }
+    else if($d == 2 ){
+        $id=$_REQUEST['ID'];
+        $sql = "DELETE FROM `store` WHERE id=".$id;
+        if(mysqli_query($con->connect(), $sql)){
+            header("Location:Pageadmin.php");
+        }else echo "Cannot ";
+        echo $sql;
+    }
+    
+    
+}
 
 
 /*$pass = $_POST['pass'];
