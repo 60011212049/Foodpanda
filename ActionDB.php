@@ -27,7 +27,7 @@ class ConnectDB {
             $_SESSION['pass']=$row['pass'];
 
             if($_SESSION['stuatus'] == 'user'){
-                header("Location:admin.php");
+                header("Location:PageUser.php");
             }
             else if($_SESSION['stuatus'] == 'driver'){
                 header("Location:indexDriver.php?state=logout");
