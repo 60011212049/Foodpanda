@@ -75,6 +75,18 @@ class ConnectDB
         } else echo "Cannot Insert";
         echo $sql;
     }
+    public function insertfood($name,$price,$stoer)
+    {
+
+        $sql =  "INSERT INTO `food`(`name`, `price`, `id_store`) 
+        VALUES ('".$name."','".$price."','".$stoer."')";
+
+        if (mysqli_query($this->connect(), $sql)) {
+            #header("Location:Pagestore.php");
+            echo "Insert";
+        } else echo "Cannot Insert";
+        echo $sql;
+    }
     public function insertstore($user, $pass, $fname, $loc, $tel)
     {
 

@@ -59,6 +59,12 @@ else if($submit == 'ยืนยันการเพื่มร้านค้
 else if($order == 'sent'){
     $con->insertOrder($order,$shop,$text);
 }
+else if($submit == 'เพื่มรายการ'){
+    $price = $_POST['price'];
+    $id=$_REQUEST['id'];
+    echo $id;
+    #$con->insertfood($fname,$price,$stoer);
+}
 else{
     $d = $_REQUEST['d'];
     echo $d;
