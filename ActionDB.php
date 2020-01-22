@@ -45,6 +45,29 @@ class ConnectDB {
         }
         
     }
+    public function ckstore($user, $pass){
+        session_start();
+        $sql  = "SELECT * FROM `store` WHERE idstore='".$user."' AND pass='".$pass."'";
+        $result= mysqli_query($this->connect(), $sql);
+        
+        if(mysqli_num_rows($result) == 1){
+            $row=mysqli_fetch_array($result);
+            $_SESSION['id']=$row['id'];
+            $_SESSION['fname']=$row['name'];
+            $_SESSION['lname']=$row['tel'];
+            $_SESSION['user']=$row['user'];
+            $_SESSION['pass']=$row['pass'];
+
+            
+            header("Location:Pagestore.php");
+
+        }else{
+            #header("Location:Login2.php");
+            echo "Cannot Login";
+
+        }
+        
+    }
      public function insert($user,$pass,$fname,$lname,$stuatus,$email,$tel) {
        
        $sql =  "INSERT INTO `user_food`(`fname`, `lname`, `email`, `tel`, `iduser`, `pass`, `status`) 

@@ -43,7 +43,7 @@
                 <input class="setinputLogin" type="password" id="pass" name="pass" minlength="4" maxlength="30" required><br><br>
 
                 <center>
-                    <input class="btLogin" type="submit" name="submit" value="เข้าสู่ระบบ">
+                    <input class="btLogin" type="submit" name="submit" value="เข้าสู่ระบบร้าน">
                 </center>
             </form>
         </div>

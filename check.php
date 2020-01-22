@@ -15,6 +15,9 @@ $con=new ConnectDB();
 if ($submit == 'เข้าสู่ระบบ'){
     $con->ckuser($user, $pass);
 }
+else if ($submit == 'เข้าสู่ระบบร้าน'){
+    $con->ckstore($user, $pass);
+}
 else if($submit == 'ยืนยันการสมัคร'){
     $stuatus = "user";
     echo "ok";
