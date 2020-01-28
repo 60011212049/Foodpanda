@@ -16,7 +16,7 @@ $fname = $_POST['fname'];
 $lname = $_POST['lname'];
 $tel = $_POST['tel'];
 $email = $_POST['email'];
-#echo $submit;
+echo $submit;
 $con=new ConnectDB();
 if ($submit == 'เข้าสู่ระบบ'){
     $con->ckuser($user, $pass);
@@ -69,9 +69,9 @@ else if($order == 'sented'){
 }
 else if($submit == 'เพื่มรายการ'){
     $price = $_POST['price'];
-    $id=$_REQUEST['id'];
-    echo $id;
-    #$con->insertfood($fname,$price,$stoer);
+    #$id=$_REQUEST['id'];
+    #echo $id;
+    $con->insertfood($fname,$price,$stoer,$food_img);
 }
 else{
     $d = $_REQUEST['d'];

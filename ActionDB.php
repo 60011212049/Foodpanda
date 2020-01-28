@@ -59,7 +59,7 @@ class ConnectDB
 
             header("Location:Pagestore.php");
         } else {
-            #header("Location:Login2.php");
+            header("Location:Login2.php");
             echo "Cannot Login";
         }
     }
@@ -78,21 +78,21 @@ class ConnectDB
         } else echo "Cannot Insert";
         echo $sql;
     }
-    public function insertfood($name, $price, $stoer)
+    public function insertfood($name, $price, $stoer,$food_img)
     {
-
-        $sql =  "INSERT INTO `food`(`name`, `price`, `id_store`) 
-        VALUES ('" . $name . "','" . $price . "','" . $stoer . "')";
+        session_start();
+        $sql =  "INSERT INTO `food`(`name`, `price`, `id_store` , `food_img` ) 
+        VALUES ('" . $name . "','" . $price . "','" . $_SESSION["id"] . "','" . $food_img . "')";
 
         if (mysqli_query($this->connect(), $sql)) {
-            #header("Location:Pagestore.php");
+            header("Location:Pagestore.php");
             echo "Insert";
         } else echo "Cannot Insert";
         echo $sql;
     }
     public function insertstore($user, $pass, $fname, $loc, $tel)
     {
-
+        
         $sql =  "INSERT INTO `store`( `store_name`, `user_name`, `pass`, `tel`, `loc`) 
         VALUES ('" . $fname . "','" . $user . "','" . $pass . "','" . $tel . "','" . $loc . "')";
 

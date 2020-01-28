@@ -44,7 +44,7 @@
             <p>foodpanda</p>
             <a href="logout.php">ออกจากระบบ</a>
             <a href="" data-toggle="collapse" data-target="#li1" >แก้ไขรายการอาหาร</a>
-            <a href="addfood.php?i=1&id=<?PHP echo $_SESSION["id"]; ?>">เพิ่มรายการอาหาร</a>
+            <a href="addfood.php?i=1">เพิ่มรายการอาหาร</a>
             <a href="register.php?i=2&ID=<?PHP echo $_SESSION["id"]; ?>">จัดการร้านค้า</a>
             <a class="active"> ชื่อร้าน : <?php echo $_SESSION['fname']; ?> </a>
 
@@ -77,9 +77,9 @@
             
             ?>
             <tr>
-                <td> <a href=check.php?d=1&ID=<?PHP echo $row["id"]; ?>><button type="button" class="btn btn-outline-danger">ลบ</button></a></td>
-                <td> <a href=addfood.php?i=2&ID=<?PHP echo $row["id"]; ?>><button type="button" class="btn btn-outline-info">เเก้ไข</button></a></td>
-                <td><?php echo $row["name"];?></td>
+                <td> <a href=check.php?d=1&ID=<?PHP echo $row["id_food"]; ?>><button type="button" class="btn btn-outline-danger">ลบ</button></a></td>
+                <td> <a href=addfood.php?i=2&ID=<?PHP echo $row["id_food"]; ?>><button type="button" class="btn btn-outline-info">เเก้ไข</button></a></td>
+                <td><?php echo $row["food_name"];?></td>
                 <td><?php echo $row["price"];?></td>
                 
             </tr>
