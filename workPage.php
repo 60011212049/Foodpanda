@@ -29,7 +29,11 @@
 </head>
 
 <body style="background-image: url('img/background1.jpg'); ">
-    <?php include 'header.php'; ?>
+    <div class="topnav" id="myTopnav">
+        <p>foodpanda</p>
+        <a href="logout.php">ออกจากระบบ</a>
+        
+    </div>
 
     <div style="margin-top:3%"></div>
 

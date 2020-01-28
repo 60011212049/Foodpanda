@@ -57,13 +57,13 @@
             $x = 0;
             while ($row = mysqli_fetch_array($result)) {
                 echo "<tr>";
-                echo "<div class=clearfix>";
+                echo "<div class=clearfix><form action=check.php?shop=" . $row['id_order'] . "&order=sented method=POST enctype=multipart/form-data>";
                 echo "<p class=tagP >ชื่อลูกค้า : " . $row['cus_name'] . "</p>";
                 echo "<p class=tagP >ชื่อร้านค้า : " . $row['shop'] . "</p>";
                 echo "<p class=tagP >รายละเอียด : " . $row['detail'] . "</p>";
                 echo "<p class=tagP >ที่อยู่ลูกค้า : " . $row['address'] . "</p>";
                 echo "<br><center><button class=button onclick=myFunction() >ส่งของเรียบร้อย</button></center>";
-                echo "</div>";
+                echo "</form></div>";
                 
                 echo "</tr>";
             }

@@ -57,7 +57,13 @@ else if($submit == 'ยืนยันการเพื่มร้านค้
     $con->insertstore($user,$pass,$fname, $loc ,$tel);
 }
 else if($order == 'sent'){
-    $con->insertOrder($order,$shop,$text);
+    $sql = "select * from store where id=".$shop;
+    $result= mysqli_query($con->connect(), $sql);
+    $row=mysqli_fetch_array($result);
+    $con->insertOrder($order,$row['name'],$text);
+}
+else if($order == 'sented'){
+    $con->clearOrder($shop);
 }
 else if($submit == 'เพื่มรายการ'){
     $price = $_POST['price'];

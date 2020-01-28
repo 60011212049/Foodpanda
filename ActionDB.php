@@ -110,6 +110,15 @@ class ConnectDB
         } else header("Location:PageUser.php?error");
         echo $sql;
     }
+    
+    public function clearOrder($order)
+    {
+        $sql =  "DELETE FROM `food_order` WHERE id_order = '".$order."'";
+        if (mysqli_query($this->connect(), $sql)) {
+            header("Location:workPage.php");
+        } else header("Location:workPage.php?error");
+        echo $sql;
+    }
 
     public function updateuser($id, $user, $pass, $fname, $lname, $status, $email, $tel)
     {
