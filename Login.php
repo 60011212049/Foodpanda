@@ -11,7 +11,7 @@
             <a href="index.php">หน้าหลัก</a>
             <a href="Login2.php">เข้าสู่ระบบเจ้าของร้าน</a>
             <a class="active">เข้าสู่ระบบ</a>
-            <a href="Register.php">สมัครสมาชิก</a>
+            <a href="Register.php?i=1">สมัครสมาชิก</a>
             <a href="#Promotion">โปรโมชั่น</a>
             <a href="Aboutus.php">เกี่ยวกับเรา</a>
         </div>
