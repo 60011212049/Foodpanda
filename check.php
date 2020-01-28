@@ -6,6 +6,8 @@ $order = $_REQUEST['order'];
 $shop = $_REQUEST['shop'];
 $text = $_POST['text'];
 
+$loc = $_POST['loc'];
+
 $user = $_POST['user'];
 $pass = $_POST['pass'];
 $submit = $_POST['submit'];
@@ -47,12 +49,12 @@ else if($submit == 'ยืนยันการเเก้ไขร้านค
     $con->updatestore($id,$user,$pass,$fname,$loc,$tel);
 }
 else if($submit == 'ยืนยันการเพื่มรายชื่อคนขับ'){
-    $stuatus = "driver";
+    $status = "driver";
     echo "ok";
-    $con->insert($user,$pass,$fname, $lname, $stuatus ,$email ,$tel);
+    $con->insert($user,$pass,$fname, $lname, $status ,$email ,$tel);
 }
 else if($submit == 'ยืนยันการเพื่มร้านค้า'){
-    $loc = $_POST['loc'];
+    
     echo "ok";
     $con->insertstore($user,$pass,$fname, $loc ,$tel);
 }

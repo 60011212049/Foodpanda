@@ -25,15 +25,15 @@ class ConnectDB
             $_SESSION['fname'] = $row['fname'];
             $_SESSION['lname'] = $row['lname'];
             $_SESSION['email'] = $row['email'];
-            $_SESSION['stuatus'] = $row['status'];
+            $_SESSION['status'] = $row['status'];
             $_SESSION['user'] = $row['user'];
             $_SESSION['pass'] = $row['pass'];
 
             if ($_SESSION['stuatus'] == 'user') {
                 header("Location:PageUser.php");
-            } else if ($_SESSION['stuatus'] == 'driver') {
+            } else if ($_SESSION['status'] == 'driver') {
                 header("Location:indexDriver.php?state=logout");
-            } else if ($_SESSION['stuatus'] == 'admin') {
+            } else if ($_SESSION['status'] == 'admin') {
                 header("Location:Pageadmin.php");
             } else
                 header("Location:Login.php");
@@ -63,23 +63,26 @@ class ConnectDB
             echo "Cannot Login";
         }
     }
-    public function insert($user, $pass, $fname, $lname, $stuatus, $email, $tel)
+    public function insert($user, $pass, $fname, $lname, $status, $email, $tel)
     {
-
+        session_start();
         $sql =  "INSERT INTO `user_food`(`fname`, `lname`, `email`, `tel`, `iduser`, `pass`, `status`) 
-       VALUES ('" . $fname . "','" . $lname . "','" . $email . "','" . $tel . "','" . $user . "','" . $pass . "','" . $stuatus . "')";
+        VALUES ('" . $fname . "','" . $lname . "','" . $email . "','" . $tel . "','" . $user . "','" . $pass . "','" . $status . "')";
 
         if (mysqli_query($this->connect(), $sql)) {
-            header("Location:index.php");
-            echo "Insert";
+            if ($status == 'driver') {
+                header("Location:Pageadmin.php");
+            } else if ($status == 'member' && $_SESSION['status'] == 'admin') {
+                header("Location:Pageadmin.php");
+            }
         } else echo "Cannot Insert";
         echo $sql;
     }
-    public function insertfood($name,$price,$stoer)
+    public function insertfood($name, $price, $stoer)
     {
 
         $sql =  "INSERT INTO `food`(`name`, `price`, `id_store`) 
-        VALUES ('".$name."','".$price."','".$stoer."')";
+        VALUES ('" . $name . "','" . $price . "','" . $stoer . "')";
 
         if (mysqli_query($this->connect(), $sql)) {
             #header("Location:Pagestore.php");
@@ -90,30 +93,30 @@ class ConnectDB
     public function insertstore($user, $pass, $fname, $loc, $tel)
     {
 
-        $sql =  "INSERT INTO `store`( `name`, `tel`, `loc`, `idstore`, `pass`) 
-        VALUES ('" . $fname . "','" . $tel . "','" . $loc . "','" . $user . "','" . $pass . "')";
+        $sql =  "INSERT INTO `store`( `store_name`, `user_name`, `pass`, `tel`, `loc`) 
+        VALUES ('" . $fname . "','" . $user . "','" . $pass . "','" . $tel . "','" . $loc . "')";
 
         if (mysqli_query($this->connect(), $sql)) {
             header("Location:Pageadmin.php");
             echo "Insert";
-        } else header("Location:Pageadmin.php");;
+        } else header("Location:Pageadmin.php");
         echo $sql;
     }
 
-    public function insertOrder($order,$shop,$text)
+    public function insertOrder($order, $shop, $text)
     {
         $sql =  "INSERT INTO `food_order`(`cus_name`, `shop`, `detail`) 
-        VALUES ('test','".$shop."','".$text."')";
+        VALUES ('test','" . $shop . "','" . $text . "')";
 
         if (mysqli_query($this->connect(), $sql)) {
             header("Location:PageUser.php");
         } else header("Location:PageUser.php?error");
         echo $sql;
     }
-    
+
     public function clearOrder($order)
     {
-        $sql =  "DELETE FROM `food_order` WHERE id_order = '".$order."'";
+        $sql =  "DELETE FROM `food_order` WHERE id_order = '" . $order . "'";
         if (mysqli_query($this->connect(), $sql)) {
             header("Location:workPage.php");
         } else header("Location:workPage.php?error");
@@ -122,18 +125,19 @@ class ConnectDB
 
     public function updateuser($id, $user, $pass, $fname, $lname, $status, $email, $tel)
     {
-
+        session_start();
         $sql = "UPDATE `user_food` SET 
         `fname`='" . $fname . "',`lname`='" . $lname . "',`email`='" . $email . "',`tel`='" . $tel . "',`iduser`='" . $user . "',`pass`='" . $pass . "',`status`='" . $status . "' 
         WHERE id=" . $id;
         echo $sql;
         if (mysqli_query($this->connect(), $sql)) {
-            echo 'update';
-            if ($_SESSION['stuatus'] == "admin") {
+            echo 'update User';
+            echo $_SESSION['status'];
+            if ($_SESSION['status'] == 'admin') {
                 header("Location:Pageadmin.php");
-            } else if ($_SESSION['stuatus'] == "user") {
+            } else if ($_SESSION['status'] == 'user') {
                 header("Location:member.php");
-            } else if ($_SESSION['stuatus'] == 'driver') {
+            } else if ($_SESSION['status'] == 'driver') {
                 header("Location:indexDriver.php");
             }
         } else  header("Location:Pageadmin.php");
@@ -143,7 +147,7 @@ class ConnectDB
     {
 
         $sql = "UPDATE `store` SET 
-        `name`='" . $fname . "',`tel`='" . $tel . "',`loc`='" . $loc . "',`idstore`='" . $user . "',`pass`='" . $pass . "' 
+        `id`='" . $id . "',`store_name`='" . $fname . "',`user_name`='" . $user . "',`pass`='" . $pass . "',`tel`='" . $tel . "',`loc`='" . $loc . "' 
         WHERE id=" . $id;
 
         if (mysqli_query($this->connect(), $sql)) {

@@ -152,9 +152,9 @@
             ?><tr>
             <td> <a href=check.php?d=2&ID=<?PHP echo $row["id"]; ?>><button type="button" class="btn btn-outline-danger">ลบ</button></a></td>
             <td> <a href=register.php?i=5&ID=<?PHP echo $row["id"]; ?>><button type="button" class="btn btn-outline-info">เเก้ไข</button></a></td>
-            <td><?php echo $row["name"];?></td>
+            <td><?php echo $row["store_name"];?></td>
             <td><?php echo $row["tel"];?></td>
-            <td><?php echo $row["idstore"];?></td>
+            <td><?php echo $row["user_name"];?></td>
             <td><?php echo $row["pass"];?></td>       
           </tr>
           <?php
