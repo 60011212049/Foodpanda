@@ -77,7 +77,7 @@
             
             ?>
             <tr>
-                <td> <a href=check.php?d=1&ID=<?PHP echo $row["id_food"]; ?>><button type="button" class="btn btn-outline-danger">ลบ</button></a></td>
+                <td> <a href=check.php?d=3&ID=<?PHP echo $row["id_food"]; ?>><button type="button" class="btn btn-outline-danger">ลบ</button></a></td>
                 <td> <a href=addfood.php?i=2&ID=<?PHP echo $row["id_food"]; ?>><button type="button" class="btn btn-outline-info">เเก้ไข</button></a></td>
                 <td><?php echo $row["food_name"];?></td>
                 <td><?php echo $row["price"];?></td>

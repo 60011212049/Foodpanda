@@ -81,13 +81,24 @@ class ConnectDB
     public function insertfood($name, $price, $stoer,$food_img)
     {
         session_start();
-        $sql =  "INSERT INTO `food`(`name`, `price`, `id_store` , `food_img` ) 
-        VALUES ('" . $name . "','" . $price . "','" . $_SESSION["id"] . "','" . $food_img . "')";
+        $sql =  "INSERT INTO `food`( `food_name`, `price`, `id_store`, `food_img`) 
+        VALUES ('".$name."','".$price."','".$_SESSION['id']."','".$food_img."')";
 
         if (mysqli_query($this->connect(), $sql)) {
             header("Location:Pagestore.php");
             echo "Insert";
         } else echo "Cannot Insert";
+        echo $sql;
+    }
+    public function updatafood($name, $price,$food_img)
+    {
+        session_start();
+        $sql =  "UPDATE `food` SET `food_name`='".$name."',`price`='".$price."',`food_img`='".$food_img."' WHERE id_food=".$_SESSION["id_food"];
+
+        if (mysqli_query($this->connect(), $sql)) {
+            header("Location:Pagestore.php");
+            echo "Insert";
+        } else echo "Cannot up";
         echo $sql;
     }
     public function insertstore($user, $pass, $fname, $loc, $tel)

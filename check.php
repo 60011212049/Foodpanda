@@ -16,7 +16,7 @@ $fname = $_POST['fname'];
 $lname = $_POST['lname'];
 $tel = $_POST['tel'];
 $email = $_POST['email'];
-echo $submit;
+// echo $submit;
 $con=new ConnectDB();
 if ($submit == 'เข้าสู่ระบบ'){
     $con->ckuser($user, $pass);
@@ -73,6 +73,10 @@ else if($submit == 'เพื่มรายการ'){
     #echo $id;
     $con->insertfood($fname,$price,$stoer,$food_img);
 }
+else if($submit == 'ยืนยันการเเก้ไขรายการอาหาร'){
+    
+    $con->updatafood($fname,$price,$stoer,$food_img);
+}
 else{
     $d = $_REQUEST['d'];
     echo $d;
@@ -87,8 +91,18 @@ else{
     else if($d == 2 ){
         $id=$_REQUEST['ID'];
         $sql = "DELETE FROM `store` WHERE id=".$id;
+        
         if(mysqli_query($con->connect(), $sql)){
             header("Location:Pageadmin.php");
+        }else echo "Cannot ";
+        echo $sql;
+    }
+    else if($d == 3){
+        $id=$_REQUEST['ID'];
+        $sql = "DELETE FROM `food` WHERE id_food=".$id;
+        
+        if(mysqli_query($con->connect(), $sql)){
+            header("Location:Pagestore.php");
         }else echo "Cannot ";
         echo $sql;
     }

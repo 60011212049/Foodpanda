@@ -10,8 +10,9 @@
     <?php
     session_start();
         $i=$_REQUEST['i'];
-        $id=$_SESSION["id"];   
-        //echo $id;
+        $id=$_SESSION["id"]; 
+         
+        // echo $id;
     ?>
         
         <?php if ($i == 1) { ?>
@@ -71,10 +72,12 @@
         <?php } 
 
          else if($i == 2){
-
+            
+            $_SESSION["id_food"] =$_REQUEST['ID'];
+             
             require_once './ActionDB.php';
             $con = new ConnectDB();
-            $sql = "select * from food where id=".$id;
+            $sql = "select * from food where id_food=".$_SESSION["id_food"];
             $result = mysqli_query($con->connect(), $sql);
             $row = mysqli_fetch_array($result);
         ?>
@@ -101,11 +104,11 @@
         </center>
 
             <div class="setformRegister" style="margin-left:auto; margin-right:auto;">
-            <form name="form" method="POST" enctype="multipart/form-data" action="check.php?id=<?php echo $id?>">
+            <form name="form" method="POST" enctype="multipart/form-data" action="check.php?id=<?php echo $_SESSION["id_food"]?>">
 
                 <label style="font-weight: 1000; color: white;" for="fname">ชื่อ อาหาร:</label><br>
                 <div style="margin-top: 5px;">
-                <input class="setinputRegister" type="text" id="fname" name="fname" maxlength="20" value=<?php echo $row['name'];?> required><br><br>
+                <input class="setinputRegister" type="text" id="fname" name="fname" maxlength="20" value=<?php echo $row['food_name'];?> required><br><br>
 
                 <label style="font-weight: 1000; color: white;" for="lname">ราคา :</label><br>
                 <div style="margin-top: 5px;">
@@ -118,7 +121,7 @@
                 
 
                 <center>
-                    <input class="btRegister" type="submit" name="submit" value=ยืนยันการเเก้ไข>
+                    <input class="btRegister" type="submit" name="submit" value=ยืนยันการเเก้ไขรายการอาหาร>
                 </center>
             </form>
         </div>
