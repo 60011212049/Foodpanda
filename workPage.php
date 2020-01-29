@@ -59,12 +59,18 @@
             } else echo "Cannot connect!!!";
             $x = 0;
             while ($row = mysqli_fetch_array($result)) {
+                $sql_user = "select * from user_food where id = ".$row['id_cus'];
+                $result_user = mysqli_query($connect->connect(), $sql_user);
+                $row_user = mysqli_fetch_array($result_user);
+
+                $sql_shop = "select * from store where id = ".$row['id_shop'] ;
+                $result_shop = mysqli_query($connect->connect(), $sql_shop);
+                $row_shop = mysqli_fetch_array($result_shop);
                 echo "<tr>";
-                echo "<div class=clearfix><form action=sentOrder.php?id=" . $row['id_order'] . " method=POST enctype=multipart/form-data>";
-                echo "<p class=tagP >ชื่อลูกค้า : " . $row['cus_name'] . "</p>";
-                echo "<p class=tagP >ชื่อร้านค้า : " . $row['shop'] . "</p>";
-                echo "<p class=tagP >รายละเอียด : " . $row['detail'] . "</p>";
-                echo "<p class=tagP >ที่อยู่ลูกค้า : " . $row['address'] . "</p>";
+                echo "<div class=clearfix><form action=sentOrder.php?id=" . $row['id'] . " method=POST enctype=multipart/form-data>";
+                echo "<p class=tagP >ชื่อลูกค้า : " . $row_user['fname'] . "</p>";
+                echo "<p class=tagP >ชื่อร้านค้ส : " . $row_shop['store_name'] . "</p>";
+                echo "<p class=tagP >ที่อยู่ลูกค้า : " . $row_user['loc'] . "</p>";
                 echo "<br><center><button class=button >รับออเดอร์</button></center>";
                 echo "</form></div>";
                 

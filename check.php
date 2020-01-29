@@ -16,6 +16,8 @@ $fname = $_POST['fname'];
 $lname = $_POST['lname'];
 $tel = $_POST['tel'];
 $email = $_POST['email'];
+
+$food = $_POST['id_food'];
 // echo $submit;
 $con=new ConnectDB();
 if ($submit == 'เข้าสู่ระบบ'){
@@ -25,9 +27,9 @@ else if ($submit == 'เข้าสู่ระบบร้าน'){
     $con->ckstore($user, $pass);
 }
 else if($submit == 'ยืนยันการสมัคร'){
-    $stuatus = "user";
+    $status = "user";
     echo "ok";
-    $con->insert($user,$pass,$fname, $lname, $stuatus ,$email ,$tel);
+    $con->insert($user,$pass,$fname, $lname, $status ,$email ,$tel);
 }
 else if($submit == 'ยืนยันการเเก้ไข'){
     
@@ -59,10 +61,27 @@ else if($submit == 'ยืนยันการเพื่มร้านค้
     $con->insertstore($user,$pass,$fname, $loc ,$tel);
 }
 else if($order == 'sent'){
-    $sql = "select * from store where id=".$shop;
-    $result= mysqli_query($con->connect(), $sql);
-    $row=mysqli_fetch_array($result);
-    $con->insertOrder($order,$row['name'],$text);
+    session_start();
+    $p = 0;
+    $food = $_POST['food'];
+    echo $food;
+    $result = mysqli_query($con->connect(),"SELECT MAX(id) FROM food_order");
+    $row = mysqli_fetch_row($result);
+    $sum = $row[0]+1;
+    echo "<br> >>>".$row[0]."";
+    echo "<br> sum ::".$sum."<br>";
+    $con->insertBill($sum,$_SESSION['id'],$shop);
+    while($p < count($food)){
+        echo $food[$p];
+        $con->insertOrder($sum,$food[$p]);
+        $p = $p + 1;
+    }
+    header("Location:PageUser.php");
+
+
+    // $sql = "select * from food_order where =".$shop;
+    // $result= mysqli_query($con->connect(), $sql);
+    // $row=mysqli_fetch_array($result);
 }
 else if($order == 'sented'){
     $con->clearOrder($shop);

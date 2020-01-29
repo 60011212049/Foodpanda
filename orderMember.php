@@ -58,6 +58,7 @@
         <table>
             <?php
             error_reporting(E_ALL ^ E_NOTICE);
+            session_start();
             require_once './ActionDB.php';
             $id = $_REQUEST['id'];
             $connect = new connectDB();
@@ -86,18 +87,22 @@
 
         </table>
         <div class="clearfix">
-            <table><form action=check.php?shop=<?php echo $row['id']; ?>&order=sent method=POST enctype=multipart/form-data>
+        <form action=check.php?shop=<?php echo $id; ?>&order=sent method=POST enctype=multipart/form-data><table>
             <?php while ($row_food = mysqli_fetch_array($result_food)) { ?>
                 
                     <tr>
-                        <td><input type="checkbox" name="f_select" value="1"></td>
+                        <td><input type="checkbox" name="food[]" value=<?php echo $row_food['id_food']; ?> id="food"></td>
                         <td><?php echo $row_food['food_name']; ?></td>
                         <td><?php echo $row_food['price']; ?></td>
                     </tr>
             <?php }?>
-                <tr><br><center><button class=button type=submit >สั่งอาหาร</button></center></tr>
-                </form>
+                <tr></tr>
+                
+                
             </table>
+            
+            <br><center><button class=button type=submit >สั่งอาหาร</button></center>
+            </form>
             </div>
     </center>
 

@@ -114,23 +114,30 @@ class ConnectDB
         echo $sql;
     }
 
-    public function insertOrder($order, $shop, $text)
+    public function insertOrder($bill, $food)
     {
-        $sql =  "INSERT INTO `food_order`(`cus_name`, `shop`, `detail`) 
-        VALUES ('test','" . $shop . "','" . $text . "')";
-
-        if (mysqli_query($this->connect(), $sql)) {
-            header("Location:PageUser.php");
-        } else header("Location:PageUser.php?error");
-        echo $sql;
+        $sql =  "INSERT INTO `list_food`(`id_bill`, `id_food`) VALUES (".$bill.",".$food.")";
+        $result = mysqli_query($this->connect(), $sql);
     }
 
+    public function insertBill($id_bill,$cus, $shop)
+    {
+        $sql =  "INSERT INTO `food_order`(`id`, `id_cus`, `id_shop`) VALUES (".$id_bill.",".$cus.",".$shop.")";
+
+        if (mysqli_query($this->connect(), $sql)) {
+            // header("Location:PageUser.php");
+            echo "Success";
+        } else header("Location:PageUser.php?error");
+        echo "bill : ".$id_bill."<br>";
+        echo "cus : ".$cus."<br>";
+        echo "shop : ".$shop."<br>";
+    }
     public function clearOrder($order)
     {
-        $sql =  "DELETE FROM `food_order` WHERE id_order = '" . $order . "'";
-        if (mysqli_query($this->connect(), $sql)) {
-            header("Location:workPage.php");
-        } else header("Location:workPage.php?error");
+        $sql =  "DELETE FROM `food_order` WHERE id = '" . $order . "'";
+        // if (mysqli_query($this->connect(), $sql)) {
+        //     header("Location:workPage.php");
+        // } else header("Location:workPage.php?error");
         echo $sql;
     }
 
