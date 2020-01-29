@@ -28,7 +28,7 @@
         </div>
 
         <div style="margin-top:3%"></div>
-
+        <script src="Script.js"></script>
         <script>
             function myFunction() {
                 var x = document.getElementById("myTopnav");
@@ -38,13 +38,52 @@
                     x.className = "topnav";
                 }
             }
+            function cck(){
+//                alert("ok");
+                var fname = document.form1.fname.value;
+                var lname = document.form1.lname.value;       
+                var email = document.form1.email.value;
+                var tel = document.form1.tel.value;
+                var numberformat = /^[0-9]+$/;
+                var letters = /^[A-Za-zก-ฮ]+$/;
+                var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+//                alert("asdasd");
+                if(fname.match(letters)){
+                    if(lname.match(letters)){
+                        if(email.match(mailformat)){
+                            if(tel.match(numberformat)){
+//                                alert("OKKKKKKK");
+                                return true;
+                            }
+                            else{
+                                alert(" เบอร์โทรเป็นตัวเลขครับบบบบบบ ");
+                                return false;
+                            }
+                        }
+                        else {
+                            alert(" เมล์ ไม่ถูก");
+                            return false;
+                        }
+                    }else{
+                       alert(" นามสกุลต้องเป็นตัวอักษร ");
+                       return false; 
+                    }
+                        
+                }
+                else{
+                    alert(" ชื่อต้องเป็นตัวอักษร ");
+                    return false;
+                }
+                
+                return false;
+            }
         </script>
         <center>
             <img src="img/logo1.png" style="width:408px; margin-top:70px;">
         </center>
 
-        <div class="setformRegister" style="margin-left:auto; margin-right:auto;">
-            <form name="form" method="POST" enctype="multipart/form-data" action="check.php">
+        <div class="setformRegister" style="margin-left:auto; margin-right:auto;"  >
+            <form  method="POST" enctype="multipart/form-data" action="check.php" name="form1" onsubmit="return cck()">
                 <label style="font-weight: 1000; color: white;" for="fname">ชื่อ :</label><br>
                 <div style="margin-top: 5px;">
                     <input class="setinputRegister" type="text" id="fname" name="fname" maxlength="20" required><br><br>
@@ -59,7 +98,7 @@
 
                             <label style="font-weight: 1000; color: white;" for=tel>เบอร์โทรศัพท์มือถือ :</label><br>
                             <div style="margin-top: 5px;">
-                                <input class="setinputRegister" type="text" id="tel" name="tel" maxlength="10" required><br><br>
+                                <input class="setinputRegister" type="text" id="tel" name="tel" minlength="10" maxlength="10"  required><br><br>
 
                                 <label style="font-weight: 1000; color: white;" for="user">ชื่อผู้ใช้งาน :</label><br>
                                 <div style="margin-top: 5px;">
@@ -103,7 +142,7 @@
         </center>
 
         <div class="setformRegister" style="margin-left:auto; margin-right:auto;">
-            <form name="form" method="POST" enctype="multipart/form-data" action="check.php?id=<?php echo $id ?>">
+            <form  method="POST" enctype="multipart/form-data" action="check.php?id=<?php echo $id ?>" name="form1" onsubmit="return cck()">
                 <label style="font-weight: 1000; color: white;" for="fname">ชื่อ :</label><br>
                 <div style="margin-top: 5px;">
                     <input class="setinputRegister" type="text" id="fname" name="fname" maxlength="20" value=<?php echo $row['fname']; ?> required><br><br>
@@ -118,7 +157,7 @@
 
                             <label style="font-weight: 1000; color: white;" for=tel>เบอร์โทรศัพท์มือถือ :</label><br>
                             <div style="margin-top: 5px;">
-                                <input class="setinputRegister" type="text" id="tel" name="tel" maxlength="10" value=<?php echo $row['tel']; ?> required><br><br>
+                                <input class="setinputRegister" type="text" id="tel" name="tel" minlength="10" maxlength="10"  value=<?php echo $row['tel']; ?> required><br><br>
 
                                 <label style="font-weight: 1000; color: white;" for="user">ชื่อผู้ใช้งาน :</label><br>
                                 <div style="margin-top: 5px;">
@@ -162,8 +201,8 @@
             <img src="img/logo1.png" style="width:408px; margin-top:70px;">
         </center>
 
-        <div class="setformRegister" style="margin-left:auto; margin-right:auto;">
-            <form name="form" method="POST" enctype="multipart/form-data" action="check.php">
+        <div class="setformRegister" style="margin-left:auto; margin-right:auto;" name="form1" onsubmit="return cck()" >
+            <form  method="POST" enctype="multipart/form-data" action="check.php">
                 <label style="font-weight: 1000; color: white;" for="fname">ชื่อ :</label><br>
                 <div style="margin-top: 5px;">
                     <input class="setinputRegister" type="text" id="fname" name="fname" maxlength="20" required><br><br>
@@ -178,7 +217,7 @@
 
                             <label style="font-weight: 1000; color: white;" for=tel>เบอร์โทรศัพท์มือถือ :</label><br>
                             <div style="margin-top: 5px;">
-                                <input class="setinputRegister" type="text" id="tel" name="tel" maxlength="10" required><br><br>
+                                <input class="setinputRegister" type="text" id="tel" name="tel" minlength="10" maxlength="10" required><br><br>
 
                                 <label style="font-weight: 1000; color: white;" for="user">ชื่อผู้ใช้งาน :</label><br>
                                 <div style="margin-top: 5px;">
@@ -223,14 +262,14 @@
         </center>
 
         <div class="setformRegister" style="margin-left:auto; margin-right:auto;">
-            <form name="form" method="POST" enctype="multipart/form-data" action="check.php">
+            <form method="POST" enctype="multipart/form-data" action="check.php" name="form1" onsubmit="return cck()" >
                 <label style="font-weight: 1000; color: white;" for="fname">ชื่อร้าน :</label><br>
                 <div style="margin-top: 5px;">
                     <input class="setinputRegister" type="text" id="fname" name="fname" maxlength="20" required><br><br>
 
                     <label style="font-weight: 1000; color: white;" for=tel>เบอร์โทรศัพท์มือถือ :</label><br>
                     <div style="margin-top: 5px;">
-                        <input class="setinputRegister" type="text" id="tel" name="tel" maxlength="10" required><br><br>
+                        <input class="setinputRegister" type="text" id="tel" name="tel" minlength="10" maxlength="10" required><br><br>
 
                         <label style="font-weight: 1000; color: white;" for="user">ที่ตั้งร้าน :</label><br>
                         <div style="margin-top: 5px;">
@@ -284,14 +323,14 @@
         </center>
 
         <div class="setformRegister" style="margin-left:auto; margin-right:auto;">
-            <form name="form" method="POST" enctype="multipart/form-data" action="check.php?id=<?php echo $id ?>">
+            <form  method="POST" enctype="multipart/form-data" action="check.php?id=<?php echo $id ?>" name="form1" onsubmit="return cck()">
                 <label style="font-weight: 1000; color: white;" for="fname">ชื่อร้าน :</label><br>
                 <div style="margin-top: 5px;">
                     <input class="setinputRegister" type="text" id="fname" name="fname" maxlength="20" value=<?php echo $row['store_name']; ?> required><br><br>
 
                     <label style="font-weight: 1000; color: white;" for=tel>เบอร์โทรศัพท์มือถือ :</label><br>
                     <div style="margin-top: 5px;">
-                        <input class="setinputRegister" type="text" id="tel" name="tel" maxlength="10" value=<?php echo $row['tel']; ?> required><br><br>
+                        <input class="setinputRegister" type="text" id="tel" name="tel" minlength="10" maxlength="10" value=<?php echo $row['tel']; ?> required><br><br>
 
                         <label style="font-weight: 1000; color: white;" for="loc">ที่ตั้งร้าน :</label><br>
                         <div style="margin-top: 5px;">
@@ -346,14 +385,14 @@
             </center>
 
             <div class="setformRegister" style="margin-left:auto; margin-right:auto;">
-                <form name="form" method="POST" enctype="multipart/form-data" action="check.php?id=<?php echo $_SESSION['id'] ?>">
+                <form  method="POST" enctype="multipart/form-data" action="check.php?id=<?php echo $_SESSION['id'] ?>" name="form1" onsubmit="return cck()">
                     <label style="font-weight: 1000; color: white;" for="fname">ชื่อร้าน :</label><br>
                     <div style="margin-top: 5px;">
                         <input class="setinputRegister" type="text" id="fname" name="fname" maxlength="20" value=<?php echo $row['store_name']; ?> required><br><br>
 
                         <label style="font-weight: 1000; color: white;" for=tel>เบอร์โทรศัพท์มือถือ :</label><br>
                         <div style="margin-top: 5px;">
-                            <input class="setinputRegister" type="text" id="tel" name="tel" maxlength="10" value=<?php echo $row['tel']; ?> required><br><br>
+                            <input class="setinputRegister" type="text" id="tel" name="tel" minlength="10" maxlength="10" value=<?php echo $row['tel']; ?> required><br><br>
 
                             <label style="font-weight: 1000; color: white;" for="loc">ที่ตั้งร้าน :</label><br>
                             <div style="margin-top: 5px;">
