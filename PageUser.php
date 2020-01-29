@@ -50,7 +50,7 @@
             while ($row = mysqli_fetch_array($result)) {
                 echo "<tr>";
                 echo "<div class=clearfix><form action=orderMember.php?id=" . $row['id'] . " method=POST enctype=multipart/form-data>";
-                echo "<p class=tagP >ชื่อร้านค้า : " . $row['name'] . "</p>";
+                echo "<p class=tagP >ชื่อร้านค้า : " . $row['store_name'] . "</p>";
                 echo "<p class=tagP >ติดต่อ : " . $row['tel'] . "</p>";
                 echo "<p class=tagP >ที่อยู่ร้านค้า : " . $row['loc'] . "</p>";
                 echo "<br><center><button class=button >สั่งอาหาร</button></center>";

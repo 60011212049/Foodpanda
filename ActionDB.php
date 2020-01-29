@@ -29,7 +29,7 @@ class ConnectDB
             $_SESSION['user'] = $row['user'];
             $_SESSION['pass'] = $row['pass'];
 
-            if ($_SESSION['stuatus'] == 'user') {
+            if ($_SESSION['status'] == 'user') {
                 header("Location:PageUser.php");
             } else if ($_SESSION['status'] == 'driver') {
                 header("Location:indexDriver.php?state=logout");
@@ -45,15 +45,15 @@ class ConnectDB
     public function ckstore($user, $pass)
     {
         session_start();
-        $sql  = "SELECT * FROM `store` WHERE idstore='" . $user . "' AND pass='" . $pass . "'";
+        $sql  = "SELECT * FROM `store` WHERE store_name='" . $user . "' AND pass='" . $pass . "'";
         $result = mysqli_query($this->connect(), $sql);
 
         if (mysqli_num_rows($result) == 1) {
             $row = mysqli_fetch_array($result);
             $_SESSION['id'] = $row['id'];
-            $_SESSION['fname'] = $row['name'];
+            $_SESSION['fname'] = $row['store_name'];
             $_SESSION['lname'] = $row['tel'];
-            $_SESSION['user'] = $row['user'];
+            $_SESSION['user'] = $row['user_name'];
             $_SESSION['pass'] = $row['pass'];
 
 
@@ -156,15 +156,20 @@ class ConnectDB
 
     public function updatestore($id, $user, $pass, $fname, $loc, $tel)
     {
-
+        session_start();
         $sql = "UPDATE `store` SET 
         `id`='" . $id . "',`store_name`='" . $fname . "',`user_name`='" . $user . "',`pass`='" . $pass . "',`tel`='" . $tel . "',`loc`='" . $loc . "' 
         WHERE id=" . $id;
 
         if (mysqli_query($this->connect(), $sql)) {
             echo 'update';
-
-            header("Location:Pageadmin.php");
+            if($_SESSION['status'] == 'admin'){
+                header("Location:Pageadmin.php");
+            }
+            else {
+                header("Location:Pagestore.php");
+            }
+            
         } else  header("Location:Pageadmin.php");
     }
 

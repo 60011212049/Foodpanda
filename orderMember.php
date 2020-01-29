@@ -25,6 +25,23 @@
             font-size: 100%;
             font-family: Verdana, Geneva, Tahoma, sans-serif;
         }
+
+        table {
+            font-family: arial, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        td,
+        th {
+            border: 1px solid #dddddd;
+            text-align: center;
+            padding: 8px;
+        }
+
+        tr:nth-child(even) {
+            background-color: #dddddd;
+        }
     </style>
 </head>
 
@@ -45,24 +62,43 @@
             $id = $_REQUEST['id'];
             $connect = new connectDB();
             if ($connect->connect()) {
-                $sql = "select * from store where id=".$id."";
+                $sql = "select * from store where id=" . $id . "";
+                $sql_food = "select * from food where id_store=" . $id . "";
                 $result = mysqli_query($connect->connect(), $sql);
+                $result_food = mysqli_query($connect->connect(), $sql_food);
             } else echo "Cannot connect!!!";
             $x = 0;
             while ($row = mysqli_fetch_array($result)) {
                 echo "<tr>";
                 echo "<div class=clearfix><form action=check.php?shop=" . $row['id'] . "&order=sent method=POST enctype=multipart/form-data>";
-                echo "<p class=tagP >ชื่อร้านค้า : " . $row['name'] . "</p>";
+                echo "<p class=tagP >ชื่อร้านค้า : " . $row['store_name'] . "</p>";
                 echo "<p class=tagP >ติดต่อ : " . $row['tel'] . "</p>";
                 echo "<p class=tagP >ที่อยู่ร้านค้า : " . $row['loc'] . "</p>";
-                echo "<textarea id=text name=text >Some text...</textarea>";
-                echo "<br><center><button class=button type=submit >สั่งอาหาร</button></center>";
                 echo "</form></div>";
 
                 echo "</tr>";
             }
+            echo "</form></div>";
+
+            echo "</tr>";
             ?>
+
+
         </table>
+        <div class="clearfix">
+            <table><form action=check.php?shop=<?php echo $row['id']; ?>&order=sent method=POST enctype=multipart/form-data>
+            <?php while ($row_food = mysqli_fetch_array($result_food)) { ?>
+                
+                    <tr>
+                        <td><input type="checkbox" name="f_select" value="1"></td>
+                        <td><?php echo $row_food['food_name']; ?></td>
+                        <td><?php echo $row_food['price']; ?></td>
+                    </tr>
+            <?php }?>
+                <tr><br><center><button class=button type=submit >สั่งอาหาร</button></center></tr>
+                </form>
+            </table>
+            </div>
     </center>
 
 </body>

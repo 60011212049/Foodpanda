@@ -45,7 +45,7 @@
             <a href="logout.php">ออกจากระบบ</a>
             <a href="" data-toggle="collapse" data-target="#li1" >แก้ไขรายการอาหาร</a>
             <a href="addfood.php?i=1">เพิ่มรายการอาหาร</a>
-            <a href="register.php?i=2&ID=<?PHP echo $_SESSION["id"]; ?>">จัดการร้านค้า</a>
+            <a href="register.php?i=6&ID=<?PHP echo $_SESSION['id']; ?>">จัดการร้านค้า</a>
             <a class="active"> ชื่อร้าน : <?php echo $_SESSION['fname']; ?> </a>
 
         </div>
