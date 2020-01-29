@@ -44,6 +44,29 @@
 
                 reader.readAsDataURL(input.files[0]);
             }
+            function cck(){
+//                alert("ok");
+                var fname = document.form.fname.value;
+                var price = document.form.price.value;       
+               
+                var numberformat = /^[0-9]+$/;
+                var letters = /^[A-Za-zก-ฮ]+$/;
+                
+                if(fname.match(letters)){
+                    if(price.match(numberformat)){
+                        return true;
+                    }else{
+                        alert("ราคาเป็นตัวเลข");
+                        return false;
+                    }
+                }else{
+                    alert("ชื่ออาหารเป็นตัวอักษร");
+                    return false;
+                }
+                    
+                
+                return false;
+            }
         }
         </script>
         <center>
@@ -59,7 +82,7 @@
 
                 <label style="font-weight: 1000; color: white;" for="lname">ราคา :</label><br>
                 <div style="margin-top: 5px;">
-                <input class="setinputRegister" type="text" id="lname" name="price" maxlength="20" required><br><br>
+                <input class="setinputRegister" type="text" id="price" name="price" maxlength="20" required><br><br>
 
                 <input type='file' onchange="readURL(this);" />
                 <img id="blah" src="http://placehold.it/180" alt="your image" style = "margin-bottom: 10px"/>
