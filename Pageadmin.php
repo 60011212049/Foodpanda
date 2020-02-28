@@ -66,7 +66,7 @@
             <?php
             require_once './ActionDB.php';
             $con = new ConnectDB();
-            $sql = "select * from user_food where status!='driver'";
+            $sql = "select * from user_food where status ='user'";
             $result = mysqli_query($con->connect(), $sql);
 
             while ($row = mysqli_fetch_array($result)) {
