@@ -102,22 +102,21 @@
     <script type="text/javascript">
         function check() {
             var checkboxes = document.getElementsByName('food[]');
-            var vals = 0;
-            if( checkboxes.length == 0){
+            var check = 0;
+            var length = checkboxes.length
+            if( length == 0){
                 alert("ร้านอาหารยังไม่มีเมนูให้สั่งกรุณาเลือกร้านอื่น");
                 return false;
             }
-
             for (var i = 0, n = checkboxes.length; i < n; i++) {
                 if (checkboxes[i].checked != true) {
-                    vals = vals + 1;
+                    check = check + 1;
                 }
             }
-            if(vals == checkboxes.length){
+            if(check == length){
                 alert("กรุณาเลือกอาหารอย่างน้อย 1 อย่าง");
                 return false;
             }
-            
             return true;
 
         }
