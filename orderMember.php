@@ -76,35 +76,47 @@
                 echo "<p class=tagP >ติดต่อ : " . $row['tel'] . "</p>";
                 echo "<p class=tagP >ที่อยู่ร้านค้า : " . $row['loc'] . "</p>";
                 echo "</form></div>";
-
                 echo "</tr>";
             }
             echo "</form></div>";
-
             echo "</tr>";
             ?>
-
-
         </table>
         <div class="clearfix">
-        <form action=check.php?shop=<?php echo $id; ?>&order=sent method=POST enctype=multipart/form-data><table>
-            <?php while ($row_food = mysqli_fetch_array($result_food)) { ?>
-                
-                    <tr>
-                        <td><input type="checkbox" name="food[]" value=<?php echo $row_food['id_food']; ?> id="food"></td>
-                        <td><?php echo $row_food['food_name']; ?></td>
-                        <td><?php echo $row_food['price']; ?></td>
-                    </tr>
-            <?php }?>
-                <tr></tr>
-                
-                
-            </table>
-            
-            <br><center><button class=button type=submit >สั่งอาหาร</button></center>
+            <form name="checkForm" action=check.php?shop=<?php echo $id; ?>&order=sent method=POST enctype=multipart/form-data onSubmit="JavaScript:return check();">
+                <table>
+                    <?php while ($row_food = mysqli_fetch_array($result_food)) {?>
+                        <tr>
+                            <td><input type="checkbox" id="food<?php echo $i ?>" name="food[]" value=<?php echo $row_food['id_food']; ?>></td>
+                            <td><?php echo $row_food['food_name']; ?></td>
+                            <td><?php echo $row_food['price']; ?></td>
+                        </tr>
+                    <?php } ?>
+                    <tr></tr>
+                </table>
+                <br>
+                <center><input type=submit value="submit"></center>
             </form>
-            </div>
+        </div>
     </center>
+    <script type="text/javascript">
+        function check() {
+            var checkboxes = document.getElementsByName('food[]');
+            var vals = 0;
+            for (var i = 0, n = checkboxes.length; i < n; i++) {
+                if (checkboxes[i].checked != true) {
+                    vals = vals + 1;
+                }
+            }
+            if(vals == checkboxes.length){
+                alert("กรุณาเลือกอาหารอย่างน้อย 1 อย่าง");
+                return false;
+            }
+            
+            return true;
+
+        }
+    </script>
 
 </body>
 
