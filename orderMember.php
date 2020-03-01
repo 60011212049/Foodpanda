@@ -104,14 +104,16 @@
             var checkboxes = document.getElementsByName('food[]');
             var check = 0;
             var length = checkboxes.length
+            var i =0;
             if( length == 0){
                 alert("ร้านอาหารยังไม่มีเมนูให้สั่งกรุณาเลือกร้านอื่น");
                 return false;
             }
-            for (var i = 0, n = checkboxes.length; i < n; i++) {
+           while( i < length ) {
                 if (checkboxes[i].checked != true) {
-                    check = check + 1;
-                }
+                    check = check + 1
+                    
+                }i = i + 1;
             }
             if(check == length){
                 alert("กรุณาเลือกอาหารอย่างน้อย 1 อย่าง");
