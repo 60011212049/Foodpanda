@@ -103,6 +103,11 @@
         function check() {
             var checkboxes = document.getElementsByName('food[]');
             var vals = 0;
+            if( checkboxes.length == 0){
+                alert("ร้านอาหารยังไม่มีเมนูให้สั่งกรุณาเลือกร้านอื่น");
+                return false;
+            }
+
             for (var i = 0, n = checkboxes.length; i < n; i++) {
                 if (checkboxes[i].checked != true) {
                     vals = vals + 1;
