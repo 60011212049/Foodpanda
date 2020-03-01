@@ -70,9 +70,13 @@ class ConnectDB
         VALUES ('" . $fname . "','" . $lname . "','" . $email . "','" . $tel . "','" . $user . "','" . $pass . "','" . $status . "')";
 
         if (mysqli_query($this->connect(), $sql)) {
-            if ($status == 'driver') {
+            if ($status == 'user') {
+                header("Location:Login.php");
+            }
+            else if ($status == 'driver') {
                 header("Location:Pageadmin.php");
-            } else if ($status == 'member' && $_SESSION['status'] == 'admin') {
+            } 
+            else if ($status == 'user' && $_SESSION['status'] == 'admin') {
                 header("Location:Pageadmin.php");
             }
         } else echo "Cannot Insert";
