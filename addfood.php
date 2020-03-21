@@ -23,7 +23,7 @@
 
         <div style="margin-top:3%"></div>
 
-        <script>
+        <script type="text/javascript">
             function myFunction() {
                 var x = document.getElementById("myTopnav");
                 if (x.className === "topnav") {
@@ -44,28 +44,9 @@
 
                 reader.readAsDataURL(input.files[0]);
             }
-            function cck(){
-//                alert("ok");
-                var fname = document.form.fname.value;
-                var price = document.form.price.value;       
-               
-                var numberformat = /^[0-9]+$/;
-                var letters = /^[A-Za-zก-ฮ]+$/;
-                
-                if(fname.match(letters)){
-                    if(price.match(numberformat)){
-                        return true;
-                    }else{
-                        alert("ราคาเป็นตัวเลข");
-                        return false;
-                    }
-                }else{
-                    alert("ชื่ออาหารเป็นตัวอักษร");
-                    return false;
-                }
-                    
-                
-                return false;
+            function ck(){
+               alert("ok")
+            
             }
         }
         </script>
@@ -74,7 +55,7 @@
         </center>
 
         <div class="setformRegister" style="margin-left:auto; margin-right:auto;">
-            <form name="form" method="POST" enctype="multipart/form-data" action="check.php">
+            <form name="form" method="POST" enctype="multipart/form-data" action="" onSubmit=" ck();">
                 
                 <label style="font-weight: 1000; color: white;" for="fname">ชื่อ อาหาร:</label><br>
                 <div style="margin-top: 5px;">
@@ -88,7 +69,7 @@
                 <img id="blah" src="http://placehold.it/180" alt="your image" style = "margin-bottom: 10px"/>
 
                 <center>
-                    <input class="btRegister" type="submit" name="submit" value=เพื่มรายการ>
+                    <input class="btRegister" type="submit" name="submit" value=เพื่มรายการ >
                 </center>
             </form>
         </div>

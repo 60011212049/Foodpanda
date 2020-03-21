@@ -100,6 +100,10 @@
 
 
         </table>
+        <?php
+        $sql = "select * from list_food where id_bill = " . $id . "";
+        $result = mysqli_query($connect->connect(), $sql);
+        ?>
             <div class="clearfix">
                 <form action=check.php?shop=<?php echo $id ?>&order=sented method=POST enctype=multipart/form-data> <table>
                     <?php while ($row_food = mysqli_fetch_array($result)) { ?>

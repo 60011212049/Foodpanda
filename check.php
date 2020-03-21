@@ -64,7 +64,7 @@ else if($order == 'sent'){
     session_start();
     $p = 0;
     $food = $_POST['food'];
-    echo $food;
+    echo "Food : ".$food;
     $result = mysqli_query($con->connect(),"SELECT MAX(id) FROM food_order");
     $row = mysqli_fetch_row($result);
     $sum = $row[0]+1;

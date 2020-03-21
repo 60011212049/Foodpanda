@@ -45,7 +45,7 @@ class ConnectDB
     public function ckstore($user, $pass)
     {
         session_start();
-        $sql  = "SELECT * FROM `store` WHERE store_name='" . $user . "' AND pass='" . $pass . "'";
+        $sql  = "SELECT * FROM `store` WHERE user_name='" . $user . "' AND pass='" . $pass . "'";
         $result = mysqli_query($this->connect(), $sql);
 
         if (mysqli_num_rows($result) == 1) {
