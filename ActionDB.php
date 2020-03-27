@@ -30,12 +30,16 @@ class ConnectDB
             $_SESSION['pass'] = $row['pass'];
 
             if ($_SESSION['status'] == 'user') {
+                alert("OK User");
                 header("Location:PageUser.php");
             } else if ($_SESSION['status'] == 'driver') {
+                alert("OK Driver");
                 header("Location:indexDriver.php?state=logout");
             } else if ($_SESSION['status'] == 'admin') {
+                alert("OK Admin");
                 header("Location:Pageadmin.php");
             } else
+                alert("Wrong");
                 header("Location:Login.php");
         } else {
             header("Location:Login.php");
