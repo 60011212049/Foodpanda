@@ -30,20 +30,20 @@ class ConnectDB
             $_SESSION['pass'] = $row['pass'];
 
             if ($_SESSION['status'] == 'user') {
-                alert("OK User");
-                header("Location:PageUser.php");
+                echo "OK User";
+                //header("Location:PageUser.php");
             } else if ($_SESSION['status'] == 'driver') {
-                alert("OK Driver");
-                header("Location:indexDriver.php?state=logout");
+                echo "OK Driver";
+                //header("Location:indexDriver.php?state=logout");
             } else if ($_SESSION['status'] == 'admin') {
-                alert("OK Admin");
-                header("Location:Pageadmin.php");
+                echo "OK Admin";
+                //header("Location:Pageadmin.php");
             } else
-                alert("Wrong");
-                header("Location:Login.php");
+                echo "Wrong";
+                //header("Location:Login.php");
         } else {
-            header("Location:Login.php");
-            echo "Cannot Login";
+            echo "Wrong";
+            //header("Location:Login.php");
         }
     }
     public function ckstore($user, $pass)
@@ -220,3 +220,4 @@ class ConnectDB
         } else echo "Cannot update";
     }
 }
+/////asdasd
